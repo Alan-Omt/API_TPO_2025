@@ -13,3 +13,7 @@ img {
     display: flex;
     flex-direction: column;
 }
+
+.BotonVaciarCarro{
+    margin-top: 2cm;
+}

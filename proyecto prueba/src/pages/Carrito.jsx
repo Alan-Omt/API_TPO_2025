@@ -17,7 +17,17 @@ function Carrito() {
                         <p>$</p>
                     </div>
                 </div>
+
+                <button onClick className="BotonVaciarCarro">Vaciar Carrito</button>
+                <p>Total: </p>
+                <input type="submit" placeholder="Comprar" />
             </main>
+
+            <footer>
+                <div className="TxtFooter">
+                    <h1>INFO WEB</h1>
+                </div>
+            </footer>
 
         </>
     );
