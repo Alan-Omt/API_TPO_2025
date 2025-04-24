@@ -52,7 +52,7 @@ function usersLogin() {
             />
         </div>
 
-          <Button variant="contained" color="primary" fullWidth sx={{ mt: 2 }}>
+          <Button variant="contained" color="primary" fullWidth sx={{ mt: 2 , color: 'black', borderColor: 'black', backgroundColor: 'white' }}>
             Confirmar
           </Button>
         </form>
