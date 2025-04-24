@@ -2,9 +2,10 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import MyProfile from './pages/myProfile'; // Asegúrate de que la ruta sea correcta
-import Products from './pages/products'; // Asegúrate de que la ruta sea correcta
-import Prueba from './pages/prueba'; // Asegúrate de que la ruta sea correcta
+import MyProfile from './pages/myProfile';
+import Prod2 from './pages/gstprod2';
+import Products from './pages/products'; 
+import Prueba from './pages/prueba'; 
 // import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
@@ -16,9 +17,10 @@ root.render(
 
   <React.StrictMode>
 
-    {/* <MyProfile /> */}
-    {/* <Products /> */}
-    <Prueba />
+     {/* <MyProfile /> */}
+    <Prod2 /> 
+    {/* <Products /> 
+    <Prueba /> */}
 
 
 
