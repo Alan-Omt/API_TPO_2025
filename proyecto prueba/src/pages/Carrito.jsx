@@ -20,7 +20,7 @@ function Carrito() {
 
                 <button onClick className="BotonVaciarCarro">Vaciar Carrito</button>
                 <p>Total: </p>
-                <input type="submit" placeholder="Comprar" />
+                <button type="submit">Continuar Compra</button>
             </main>
 
             <footer>
