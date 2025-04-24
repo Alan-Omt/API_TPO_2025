@@ -17,3 +17,8 @@
     margin-bottom: 2rem; /* Añade un margen inferior de 1rem */
     
 }
+.inline {
+
+    display: inline; /* Hace que el elemento se comporte como un elemento en línea */
+
+}

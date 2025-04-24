@@ -64,15 +64,18 @@ const Gstprod2 = () => {
   </div>
   </div>
   </div>
+  <div className="mb-5">
+
+        </div>
        
     <div className="flex items-start mt-4">
         <div className="text-blue-600 mt-1 mr-3">
-           <span>🔒</span> {/* Icono de pago seguro */}
+            <span className="inline ml-1">🔄</span>
+            <h3 className="font-medium text-gray-900 inline">Devolucion Facil</h3>
         </div>
     </div>
     <div>
-        <h3 className="font-medium text-gray-900">Easy Returns</h3>
-            <p className="text-sm text-gray-500">30 day return policy</p>
+            <p className="text-sm text-gray-500">Politica de devolucion de 30 dias</p>
         </div>
     </div>
 
