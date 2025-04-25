@@ -18,9 +18,6 @@ root.render(
     {/* <Prod2 />  */}
     {/* <Products /> 
     <Prueba /> */}
-
-
-
-  </React.StrictMode>
+      </React.StrictMode>
 
 );
