@@ -25,7 +25,7 @@ import com.api.e_commerce.service.ProductoService;
 
 @RestController
 @RequestMapping("/api/productos") //localhost:8080/api/productos del locahost:8080/api/productos/id
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = {"http://localhost:5173", "http://localhost:3000"}) // Permite solicitudes desde el frontend en desarrollo
 public class ProductoController {
     @Autowired //inyecta automaticamente una instancia de productorepository en el controlador
     private ProductoRepository productoRepository;

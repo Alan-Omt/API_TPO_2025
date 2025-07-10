@@ -98,7 +98,7 @@ public class UsuarioController {
     }
 
     // Obtener usuario por ID
-    @GetMapping("/{id}")
+    @GetMapping("/id/{id}")
     public ResponseEntity<Usuario> getUserById(@PathVariable Long id) {
         Optional<Usuario> usuario = usuarioRepository.findById(id);
         if (usuario.isPresent()) {

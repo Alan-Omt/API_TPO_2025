@@ -1,6 +1,6 @@
 export const updateProductStock = async (productId, cantidad, operacion) => {
   try {
-    const response = await fetch(`${API_BASE_URL}/productos/${productId}/stock`, {
+    const response = await fetch(`${import.meta.env.VITE_REACT_APP_API_URL}/stock`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',

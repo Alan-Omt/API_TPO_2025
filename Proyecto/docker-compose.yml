@@ -1,0 +1,74 @@
+  # Versión de Docker Compose
+
+services:
+  # Servicio de MySQL
+  mysql_db:
+    image: mysql:8.0  # Imagen oficial de MySQL 8.0
+    container_name: mysql_container  # Nombre del contenedor
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword  # Contraseña del root
+      MYSQL_DATABASE: ecommerce_db  # Base de datos creada al iniciar
+      MYSQL_USER: admin  # Usuario adicional
+      MYSQL_PASSWORD: admin123  # Contraseña del usuario
+    ports:
+      - "3306:3306"  # Puerto expuesto (host:contenedor)
+    volumes:
+      - mysql_data:/var/lib/mysql  # Volumen para persistencia de datos
+    networks:
+      - ecommerce_network  # Red asignada
+
+  # Servicio del Backend (Spring Boot)
+  springboot_app:
+    build:
+      context: ./backend  # Ruta al directorio del backend
+      dockerfile: Dockerfile  # Nombre del Dockerfile
+    container_name: springboot_container
+    ports:
+      - "8080:8080"  # Puerto del backend
+    environment:
+      # Variables para conexión a MySQL (usando el nombre del servicio como host)
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql_db:3306/ecommerce_db?useSSL=false&allowPublicKeyRetrieval=true
+      SPRING_DATASOURCE_USERNAME: admin
+      SPRING_DATASOURCE_PASSWORD: admin123
+    depends_on:
+      - mysql_db  # Espera a que MySQL esté listo
+    networks:
+      - ecommerce_network
+
+  # Servicio del Frontend (React)
+  react_app:
+    build:
+      context: ./frontend  # Ruta al directorio del frontend
+      dockerfile: Dockerfile  # Nombre del Dockerfile
+      args:
+        VITE_REACT_APP_API_URL: http://localhost:8080/api  # URL del backend (desde el host)
+    container_name: react_container
+    ports:
+      - "3000:3000"  # Puerto del frontend
+    volumes:
+      - ./frontend:/app  # Montar código fuente para desarrollo en caliente
+      - /app/node_modules  # Evitar sobrescribir node_modules
+    networks:
+      - ecommerce_network
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin_container
+    restart: always
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: mysql_db
+      PMA_PORT: 3306
+      MYSQL_ROOT_PASSWORD: rootpassword
+    depends_on:
+      - mysql_db
+    networks:
+      - ecommerce_network  
+# Volúmenes para persistencia
+volumes:
+  mysql_data:  # Volumen para MySQL
+
+# Red definida para comunicación entre contenedores
+networks:
+  ecommerce_network:
+    driver: bridge

@@ -22,7 +22,7 @@ import com.api.e_commerce.service.CategoriaService;
 
 @RestController
 @RequestMapping("/api/categorias")
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = {"http://localhost:5173", "http://localhost:3000"}) // Permite solicitudes desde el frontend en desarrollo
 public class CategoriaController {
     
     @Autowired
